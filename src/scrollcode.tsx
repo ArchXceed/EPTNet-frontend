@@ -4,6 +4,7 @@ import { createRoot } from "react-dom/client";
 import { ThemeProvider } from "@/components/theme-provider";
 import { JSX, StrictMode } from "react";
 import "./globals.css";
+import "./infinitescroll.css"
 import MenuHeader from "./components/menu-header";
 import { SiteFooter } from "./components/footer";
 
@@ -70,31 +71,16 @@ const Scrollcode = () => {
             ref={containerRef}
             onWheel={handleScroll}
             onScroll={handleScroll}
-            style={{
-                height: "80vh",
-                overflowY: "scroll", // Allow vertical scroll
-                padding: 0,
-                margin: 0,
-            }}
         >
             {/* Container for all iframes */}
             <div
-                style={{
-                    position: "relative",
-                    width: "100%",
-                    height: "100%",
-                }}
+                className="scroll-container"
             >
                 {items.map((item, index) => (
                     <div
                         key={item}
-                        style={{
-                            height: "100%",
-                            width: "100%",
-                            position: "absolute",
-                            top: currentHeight + "%",
-                            left: "0"
-                        }}
+                        className="post"
+                        id={"post-"+index}
                     >
                         {createIframe(item)}
                         {currentHeight += 100}

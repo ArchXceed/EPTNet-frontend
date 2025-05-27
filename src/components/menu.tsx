@@ -19,7 +19,7 @@ function Menu(props: { isConnected: boolean, isAdmin: boolean }): JSX.Element {
                     <NavigationMenuTrigger className="bg-[--background] text-[--foreground] hover:bg-[--accent]">
                         Autentification et gestion des utilisateurs
                     </NavigationMenuTrigger>
-                    <NavigationMenuContent className="bg-[--background] w-full sm:w-[300px] md:w-[400px] lg:w-[500px]">
+                    <NavigationMenuContent className="bg-[--background] w-full sm:w-[300px] md:w-[400px] lg:w-[1000px]">
                         <ul className="grid gap-3 p-2 sm:p-3 md:p-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-[.75fr_1fr]">
                             {pages.visitorsPages.map((page) => (
                                 <ListItem key={page.title} href={page.href} title={page.title}>
@@ -34,7 +34,7 @@ function Menu(props: { isConnected: boolean, isAdmin: boolean }): JSX.Element {
                     <NavigationMenuTrigger className="bg-[--background] text-[--foreground] hover:bg-[--accent]">
                         Profil utilisateur et fonctionnalités sociales
                     </NavigationMenuTrigger>
-                    <NavigationMenuContent className="bg-[--background] w-full sm:w-[300px] md:w-[400px] lg:w-[500px]">
+                    <NavigationMenuContent className="bg-[--background] w-full sm:w-[300px] md:w-[400px] lg:w-[1000px]">
                         <ul className="grid gap-3 p-2 sm:p-3 md:p-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-[.75fr_1fr]">
                             {pages.userPages.map((page) => (
                                 <ListItem key={page.title} href={page.href} title={page.title}>
@@ -50,7 +50,7 @@ function Menu(props: { isConnected: boolean, isAdmin: boolean }): JSX.Element {
                     <NavigationMenuTrigger className="bg-[--background] text-[--foreground] hover:bg-[--accent]">
                         Réseau social et création de contenu
                     </NavigationMenuTrigger>
-                    <NavigationMenuContent className="bg-[--background] w-full sm:w-[300px] md:w-[400px] lg:w-[500px]">
+                    <NavigationMenuContent className="bg-[--background] w-full sm:w-[300px] md:w-[400px] lg:w-[1000px]">
                         <ul className="grid gap-3 p-2 sm:p-3 md:p-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-[.75fr_1fr]">
                             {pages.networkPages.map((page) => (
                                 <ListItem key={page.title} href={page.href} title={page.title}>
@@ -67,7 +67,7 @@ function Menu(props: { isConnected: boolean, isAdmin: boolean }): JSX.Element {
                         <NavigationMenuTrigger className="bg-[--background] text-[--foreground] hover:bg-[--accent]">
                             Admin & Modération
                         </NavigationMenuTrigger>
-                        <NavigationMenuContent className="bg-[--background] w-full sm:w-[300px] md:w-[400px] lg:w-[500px]">
+                        <NavigationMenuContent className="bg-[--background] w-full sm:w-[300px] md:w-[400px] lg:w-[1000px]">
                             <ul className="grid gap-3 p-2 sm:p-3 md:p-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-[.75fr_1fr]">
                                 {pages.adminPages.map((page) => (
                                     <ListItem key={page.title} href={page.href} title={page.title}>
