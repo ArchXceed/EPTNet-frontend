@@ -17,7 +17,7 @@ export function MessageInput({ onSend }: MessageInputProps) {
   };
 
   return (
-    <div className="absolute w-1/2 p-4 border-t">
+    <div>
       <div className="flex gap-2">
         <Input
           type="text"

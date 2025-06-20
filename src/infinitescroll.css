@@ -9,18 +9,16 @@ html /* IMPORTANT: scroll-snap-type won't work with body selector, so replace it
   }
   
   .scroll-container {
-    scroll-snap-align: start; /* Define snapping target. Can also be "center" or "end". */
     overflow-y: scroll;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    height: 100vh;
+    scroll-snap-type: y mandatory;
   }
   
   .post {
     width: 100%;
-    height: 100vh;
-    display: flex;
+      scroll-snap-align: start;
+      height: 90vh;
+        display: flex;
     justify-content: center;
     align-items: center;
     background-color: #000;

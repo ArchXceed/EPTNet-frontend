@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Sidebar, SidebarHeader, SidebarContent, SidebarFooter, SidebarRail, SidebarProvider, SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuItem, SidebarMenuButton, SidebarInset, SidebarTrigger } from "@/components/ui/sidebar";
-import { sidebarItems, SidebarItem } from "@/globals"; // assuming sidebarItems is imported
+import { Sidebar, SidebarHeader, SidebarContent, SidebarFooter, SidebarRail, SidebarProvider, SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuItem, SidebarMenuButton, SidebarInset, SidebarTrigger, SidebarGroupContent } from "@/components/ui/sidebar";
+import { sidebarItems, SidebarItem } from "@/globals";
 
 
 export default function AppSidebar() {
@@ -9,30 +9,34 @@ export default function AppSidebar() {
     return (
         <SidebarProvider>
             <div className="flex w-full">
-                <Sidebar variant="sidebar" collapsible="icon">
+                <Sidebar variant="sidebar" collapsible="icon" style={{ zIndex: 6 }}>
                     <SidebarHeader>
-                        <div className="p-4 font-bold text-lg">EPTNet</div>
+                        <div className="p-4 font-bold text-lg">EPTNet Account</div>
                     </SidebarHeader>
 
                     <SidebarContent className="overflow-y-auto">
                         {sidebarItems.map((category) => (
                             <SidebarGroup key={category.title}>
                                 <SidebarGroupLabel>{category.title}</SidebarGroupLabel>
-                                <SidebarMenu>
-                                    {category.items.map((item) => (
-                                        <SidebarMenuItem key={item.title}>
-                                            <SidebarMenuButton
-                                                tooltip={item.title}
-                                                onClick={() => setActiveItem(item)}
-                                                className={`flex items-center gap-2 ${activeItem?.title === item.title ? "bg-muted" : ""}`}
-                                            >
-                                                {item.icon}
-                                                <span>{item.title}</span>
-                                            </SidebarMenuButton>
-                                        </SidebarMenuItem>
-                                    ))}
-                                </SidebarMenu>
+                                <SidebarGroupContent>
+
+                                    <SidebarMenu>
+                                        {category.items.map((item) => (
+                                            <SidebarMenuItem key={item.title}>
+                                                <SidebarMenuButton
+                                                    tooltip={item.title}
+                                                    onClick={() => setActiveItem(item)}
+                                                    className={`flex items-center gap-2 ${activeItem?.title === item.title ? "bg-muted" : ""}`}
+                                                >
+                                                    {item.icon}
+                                                    <span>{item.title}</span>
+                                                </SidebarMenuButton>
+                                            </SidebarMenuItem>
+                                        ))}
+                                    </SidebarMenu>
+                                </SidebarGroupContent>
                             </SidebarGroup>
+
                         ))}
                     </SidebarContent>
 

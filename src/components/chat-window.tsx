@@ -8,7 +8,7 @@ interface ChatWindowProps {
 
 export function ChatWindow({ messages, onSend }: ChatWindowProps) {
   return (
-    <div className="flex-1 flex flex-col">
+    <div className="flex-1 flex flex-col h-[80vh]">
       <MessageList messages={messages} />
       <MessageInput onSend={onSend} />
     </div>

@@ -51,8 +51,8 @@ export const pages: Pages = {
         { href: "/messages", title: "Messages", description: "Envoyer et recevoir des messages." },
     ],
     adminPages: [
-        { href: "/role-management", title: "Gérer les rôles", description: "Gérer les rôles d'utilisateurs." },
-        { href: "/account-management", title: "Gérer les comptes", description: "Gérer les comptes utilisateurs." },
+        { href: "/admin/roles", title: "Gérer les rôles", description: "Gérer les rôles d'utilisateurs." },
+        { href: "/admin/accounts", title: "Gérer les comptes", description: "Gérer les comptes utilisateurs." },
     ],
     visitorsPages: [
         { href: "/login", title: "Connexion", description: "Accéder à votre compte." },
@@ -63,8 +63,7 @@ export const pages: Pages = {
         { href: "/scrollcode", title: "Scrollcode", description: "ScrollCode." },
         { href: "/jokescroll", title: "Jokescroll", description: "Parcourir Jokescroll." },
         { href: "/homework", title: "Partage de devoirs", description: "Trouvez les devoirs de votre cours." },
-        { href: "/meme-creator", title: "Créateur de Mèmes", description: "Créez des mèmes." },
-        { href: "/post", title: "Poster", description: "Poster quelque chose." },
+        { href: "/post/", title: "Poster", description: "Poster quelque chose." },
     ],
 };
 

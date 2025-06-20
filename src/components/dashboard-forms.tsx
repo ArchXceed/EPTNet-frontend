@@ -369,11 +369,11 @@ export function Logout(): JSX.Element {
 export function GetAIPoints(): number {
     return 3; // Hardcoded for now
 }
-export function GetAccountCard() {
-    const username = "hatsunemiku";
-    const points = 50;
-    const rank = 5.0;
-    const role = "User";
+export function GetAccountCard(props: { username?: string; points?: number; rank?: number; role?: string } = { username: "hatsunemiku", points: 50, rank: 5.0, role: "User" }): JSX.Element {
+    const username = props.username || "No Username";
+    const points = props.points || 0;
+    const rank = props.rank || 0;
+    const role = props.role || "User";
 
     return (
         <div className="relative w-full max-w-sm rounded-2xl border border-blue-500 bg-gradient-to-br from-[#0f172a] to-[#1e293b] p-6 shadow-lg transition-transform hover:scale-105 hover:shadow-blue-500/50">

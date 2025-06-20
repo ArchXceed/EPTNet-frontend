@@ -8,39 +8,57 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { useState, forwardRef, useImperativeHandle } from "react";
+import { useState, forwardRef, useImperativeHandle, JSX } from "react";
 
 export type AlertHandle = {
     showAlert: () => void;
 };
 
-const Alert = forwardRef<AlertHandle, { alertTitle: string; alertDescription: string }>((props, ref) => {
-    const [isOpen, setIsOpen] = useState(false);
+type AlertProps = {
+    alertTitle: string;
+    alertDescription: string;
+    content?: JSX.Element;
+    callback?: () => void;
+};
 
-    const showAlert = () => {
-        setIsOpen(true);
-    };
+const Alert = forwardRef<AlertHandle, AlertProps>(
+    ({ alertTitle, alertDescription, content: Content = <></>, callback: callback = () => {} }, ref) => {
+        const [isOpen, setIsOpen] = useState(false);
 
-    useImperativeHandle(ref, () => ({
-        showAlert,
-    }));
+        const showAlert = () => {
+            setIsOpen(true);
+        };
 
-    return (
-        <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
-            <AlertDialogTrigger>
-                <div /> {/* Hidden trigger, no interaction needed */}
-            </AlertDialogTrigger>
-            <AlertDialogContent>
-                <AlertDialogHeader>
-                    <AlertDialogTitle>{props.alertTitle}</AlertDialogTitle>
-                    <AlertDialogDescription>{props.alertDescription}</AlertDialogDescription>
-                </AlertDialogHeader>
-                <AlertDialogFooter>
-                    <AlertDialogAction onClick={() => setIsOpen(false)}>Ok</AlertDialogAction>
-                </AlertDialogFooter>
-            </AlertDialogContent>
-        </AlertDialog>
-    );
-});
+        useImperativeHandle(ref, () => ({
+            showAlert,
+        }));
+
+        return (
+            <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
+                <AlertDialogTrigger>
+                    <div /> {/* Hidden trigger, no interaction needed */}
+                </AlertDialogTrigger>
+                <AlertDialogContent>
+                    <AlertDialogHeader>
+                        <AlertDialogTitle>{alertTitle}</AlertDialogTitle>
+                        <AlertDialogDescription>
+                            {alertDescription} {Content}
+                        </AlertDialogDescription>
+                    </AlertDialogHeader>
+                    <AlertDialogFooter>
+                        <AlertDialogAction onClick={
+                            () => {
+                            setIsOpen(false)
+                            callback()
+                            }
+                        }>
+                            Ok
+                        </AlertDialogAction>
+                    </AlertDialogFooter>
+                </AlertDialogContent>
+            </AlertDialog>
+        );
+    }
+);
 
 export default Alert;
